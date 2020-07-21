@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
+
+//importing Components and CSS
 import './Monsters.css';
+import {CardList} from './components/card-list/card-list.component'
 
 class Monsters extends Component{
 
@@ -19,12 +22,16 @@ class Monsters extends Component{
 
   render(){
     return(
-      <div className="monsters-body">
-        {
-          this.state.monsters.map((monster) => {
-            return <p key={monster.id}> {monster.name} </p>
-          })
-        }
+      <div className="project-body">
+
+        <CardList>
+          {
+            this.state.monsters.map((monster) => {
+              return <p key={monster.id}> {monster.name} </p>
+            })
+          }
+        </CardList>
+        
       </div>
     )
   }
