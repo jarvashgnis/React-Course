@@ -7,21 +7,14 @@ class Monsters extends Component{
     super();
 
     this.state = {
-      monsters: [
-        {
-          id: 0,
-          name: 'Dracula'
-        },
-        {
-          id: 1,
-          name: 'Zombie'
-        },
-        {
-          id: 2,
-          name: 'Alien'
-        }
-      ]
+      monsters: []
     }
+  }
+
+  componentDidMount(){
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(users => {this.setState({monsters: users})})
   }
 
   render(){
@@ -29,7 +22,7 @@ class Monsters extends Component{
       <div className="monsters-body">
         {
           this.state.monsters.map((monster) => {
-            return <li key={monster.id}> {monster.name} </li>
+            return <p key={monster.id}> {monster.name} </p>
           })
         }
       </div>
