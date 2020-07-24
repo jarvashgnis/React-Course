@@ -24,13 +24,7 @@ class Monsters extends Component{
     return(
       <div className="project-body">
 
-        <CardList>
-          {
-            this.state.monsters.map((monster) => {
-              return <p key={monster.id}> {monster.name} </p>
-            })
-          }
-        </CardList>
+        <CardList monsters={this.state.monsters}/>
         
       </div>
     )
